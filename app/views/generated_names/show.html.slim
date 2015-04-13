@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong First name:
+  = @generated_name.first_name
+p
+  strong Surname:
+  = @generated_name.surname
+
+= link_to 'Edit', edit_generated_name_path(@generated_name)
+'|
+= link_to 'Back', generated_names_path
