@@ -1,6 +1,7 @@
 class GeneratedNamesController < ApplicationController
   before_action :set_generated_name, only: [:show, :edit, :update, :destroy]
 
+
   # GET /generated_names
   # GET /generated_names.json
   def index
@@ -24,17 +25,14 @@ class GeneratedNamesController < ApplicationController
   # POST /generated_names
   # POST /generated_names.json
   def create
-    @generated_name = GeneratedName.new(generated_name_params)
+    #@generated_name = GeneratedName.new(generated_name_params)
+    first_name = NameFetcher.make_api_call
 
-    respond_to do |format|
-      if @generated_name.save
-        format.html { redirect_to @generated_name, notice: 'Generated name was successfully created.' }
-        format.json { render :show, status: :created, location: @generated_name }
-      else
-        format.html { render :new }
-        format.json { render json: @generated_name.errors, status: :unprocessable_entity }
-      end
-    end
+    # Get the surname from the response
+
+
+
+    redirect_to :back
   end
 
   # PATCH/PUT /generated_names/1
