@@ -1,8 +1,8 @@
 = simple_form_for :generated_name, url:generated_names_path do |f|
   
-  fieldset
-    .form-inputs
+  fieldset.name
+    .form-input
       = f.input :surname, autofocus: true
 
   fieldset
-    = f.button :submit
+    = f.button :submit, 'Generate Name'

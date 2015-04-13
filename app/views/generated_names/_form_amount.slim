@@ -2,12 +2,19 @@
   
   fieldset
     .form-inputs
-      select name="display_amount" 
-        option 5
-        option 10
-        option 15
-        option 20
+      = label :display_amount, 'Previous names'
+      = select_tag "display_amount", options_for_select([5,10,15,20], session['amount'])
+      / select name="display_amount" 
+      /   option 5
+      /   option 10
+      /   option 15
+      /   option 20
 
+    .form-inputs 
+      = label :sex, 'Male'
+  	  = radio_button_tag 'sex', 'male', session['sex'] == 'male'
+      = label :sex, 'Female'
+  	  = radio_button_tag 'sex', 'female', session['sex'] == 'female'
 
   fieldset
-    = submit_tag
+    = submit_tag 'Save options'
