@@ -25,12 +25,8 @@ class GeneratedNamesController < ApplicationController
   # POST /generated_names
   # POST /generated_names.json
   def create
-    #@generated_name = GeneratedName.new(generated_name_params)
     first_name = NameFetcher.make_api_call
-
-    # Get the surname from the response
-
-
+    @generated_name = GeneratedName.new(generated_name_params.merge(first_name:first_name))
 
     redirect_to :back
   end
