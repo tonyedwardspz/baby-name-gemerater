@@ -2,24 +2,4 @@ h1 Random name generator
 
 = render 'form'
 
-
-table
-  thead
-    tr
-      th First name
-      th Surname
-      th
-      th
-      th
-
-  tbody
-    - @generated_names.each do |generated_name|
-      tr
-        td = generated_name.first_name
-        td = generated_name.surname
-        td = link_to 'Show', generated_name
-        td = link_to 'Edit', edit_generated_name_path(generated_name)
-        td = link_to 'Destroy', generated_name, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-
-= link_to 'New Generated name', new_generated_name_path
+= render 'past_names'
