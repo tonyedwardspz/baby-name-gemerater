@@ -1,13 +1,6 @@
 h1 Random name generator
 
-= simple_form_for @generated_name do |f|
-  
-  fieldset
-    .form-inputs
-      = f.input :surname, autofocus: true
-
-  fieldset
-    = f.button :submit
+= render 'form'
 
 
 / table
@@ -30,4 +23,4 @@ h1 Random name generator
 
 / br
 
-= link_to 'New Generated name', new_generated_name_path
+/= link_to 'New Generated name', new_generated_name_path

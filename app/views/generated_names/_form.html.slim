@@ -1,9 +1,8 @@
-= simple_form_for(@generated_name) do |f|
-  = f.error_notification
+= simple_form_for :generated_name, url:generated_names_path do |f|
+  
+  fieldset
+    .form-inputs
+      = f.input :surname, autofocus: true
 
-  .form-inputs
-    = f.input :first_name
-    = f.input :surname
-
-  .form-actions
+  fieldset
     = f.button :submit

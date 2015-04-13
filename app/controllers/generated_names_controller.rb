@@ -11,6 +11,7 @@ class GeneratedNamesController < ApplicationController
   # GET /generated_names/1
   # GET /generated_names/1.json
   def show
+
   end
 
   # GET /generated_names/new
@@ -26,9 +27,9 @@ class GeneratedNamesController < ApplicationController
   # POST /generated_names.json
   def create
     first_name = NameFetcher.make_api_call
-    @generated_name = GeneratedName.new(generated_name_params.merge(first_name:first_name))
+    @generated_name = GeneratedName.create(generated_name_params.merge(first_name:first_name))
 
-    redirect_to :back
+    redirect_to @generated_name
   end
 
   # PATCH/PUT /generated_names/1
