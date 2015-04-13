@@ -12,7 +12,18 @@ class GeneratedNamesController < ApplicationController
   # GET /generated_names/1
   # GET /generated_names/1.json
   def show
-    @generated_names = get_past_names(@generated_name)
+    if params['display_amount']
+      session['amount'] = params['display_amount']
+    else
+      session['amount'] = 5
+    end
+    ap session['amount']
+    #ap @generated_name
+    #ap params[:display_amount]
+    #ap params
+    #ap params['display_amount']
+
+    @generated_names = get_past_names(@generated_name, session['amount'])
   end
 
   # GET /generated_names/new
@@ -65,10 +76,10 @@ class GeneratedNamesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def generated_name_params
-      params.require(:generated_name).permit(:first_name, :surname)
+      params.require(:generated_name).permit(:first_name, :surname, :display_amount)
     end
 
-    def get_past_names (latest_name)
-      GeneratedName.where(surname: latest_name.surname).order('created_at DESC').limit(3)
+    def get_past_names (latest_name, amount)
+      GeneratedName.where(surname: latest_name.surname).order('created_at DESC').limit(amount)
     end
 end
