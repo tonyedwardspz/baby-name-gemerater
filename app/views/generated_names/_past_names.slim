@@ -1,8 +1,3 @@
-h1 Random name generator
-
-= render 'form'
-
-
 table
   thead
     tr
@@ -20,6 +15,3 @@ table
         td = link_to 'Show', generated_name
         td = link_to 'Edit', edit_generated_name_path(generated_name)
         td = link_to 'Destroy', generated_name, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-
-= link_to 'New Generated name', new_generated_name_path

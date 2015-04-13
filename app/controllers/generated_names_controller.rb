@@ -6,6 +6,7 @@ class GeneratedNamesController < ApplicationController
   # GET /generated_names.json
   def index
     @generated_name = GeneratedName.new
+    @generated_names = GeneratedName.all
   end
 
   # GET /generated_names/1
