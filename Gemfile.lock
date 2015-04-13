@@ -37,6 +37,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.0)
+    awesome_print (1.6.1)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bourbon (4.2.2)
@@ -86,6 +87,9 @@ GEM
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     hike (1.2.3)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.2.12)
       activesupport (>= 3.0.0, < 5)
@@ -122,6 +126,7 @@ GEM
     minitest-rg (5.1.0)
       minitest (~> 5.0)
     multi_json (1.11.0)
+    multi_xml (0.5.5)
     neat (1.7.2)
       bourbon (>= 4.0)
       sass (>= 3.3)
@@ -230,6 +235,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   bourbon
   byebug
   capistrano
@@ -240,6 +246,7 @@ DEPENDENCIES
   capistrano-rbenv
   coffee-rails (~> 4.1.0)
   factory_girl
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   minitest-documentation
