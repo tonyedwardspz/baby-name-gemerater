@@ -12,14 +12,6 @@ class GeneratedNamesController < ApplicationController
   # GET /generated_names/1
   # GET /generated_names/1.json
   def show
-
-    session['amount'] = params['display_amount'] if params['display_amount']
-
-    amount = session['amount']
-
-    session['sex'] ||= 'male'
-    session['sex'] = (params['sex']) if params['sex']
-
     @generated_names = get_past_names(@generated_name, session['amount'])
   end
 
@@ -35,6 +27,9 @@ class GeneratedNamesController < ApplicationController
   # POST /generated_names
   # POST /generated_names.json
   def create
+    session['sex'] = (params['sex']) if params['sex']
+    session['amount'] = params['display_amount'] if params['display_amount']
+
     first_name = NameFetcher.make_api_call(session['sex'])
     @generated_name = GeneratedName.create(generated_name_params.merge(first_name:first_name))
 
