@@ -9,10 +9,7 @@ class NameFetcher
        api_params = SEX + sex
     end
 
-    ap BASE_URI + api_params
-
     response = HTTParty.get(BASE_URI + api_params)
-    ap response
     first_name = response["name"]
     return first_name
 
