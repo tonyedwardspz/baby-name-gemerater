@@ -4,8 +4,15 @@ class NameFetcher
   SEX = "&gender="
 
   def self.make_api_call(sex)
+    api_params = ''
+    unless sex == 'both'
+       api_params = SEX + sex
+    end
 
-    response = HTTParty.get(BASE_URI + SEX + sex)
+    ap BASE_URI + api_params
+
+    response = HTTParty.get(BASE_URI + api_params)
+    ap response
     first_name = response["name"]
     return first_name
 
