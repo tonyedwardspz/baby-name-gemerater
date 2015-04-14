@@ -5,6 +5,7 @@ class GeneratedNamesController < ApplicationController
   # GET /generated_names
   # GET /generated_names.json
   def index
+    session['sex'] = 'both'
     @generated_name = GeneratedName.new
     @generated_names = get_past_names(@generated_name, 6)
   end
