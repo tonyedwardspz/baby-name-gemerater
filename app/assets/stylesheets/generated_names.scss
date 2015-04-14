@@ -3,3 +3,117 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+
+$background-color: #8fc06c;
+$opacityStart: 1.1;
+$generated_name_font: 42px;
+
+
+@mixin fade-out-past-name($opacity) {
+
+	opacity: $opacity;
+
+}
+
+
+@for $i from 1 through 7 {
+	$opacityStart: $opacityStart - 0.15;
+	@if $i > 1{
+		$generated_name_font: $generated_name_font - 4;
+	}
+
+    p:nth-of-type(#{$i}) {
+       @include fade-out-past-name($opacityStart);
+       font-size: $generated_name_font;
+    }
+}
+
+
+body{
+	background: $background-color;
+	color:#FFF;
+	text-align:center;
+}
+
+.past p:first-of-type{
+	margin-top:40px;
+}
+
+.past p{
+	margin-bottom:20px;
+}
+
+
+a {
+	color: #fff;
+	font-size: 16px;
+}
+
+/* unvisited link */
+a:link {
+    color: #FFf;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: #FFF
+}
+
+/* mouse over link */
+a:hover {
+    color: #FFF;
+    background-color: $background-color;
+    text-decoration: underline;
+}
+
+/* selected link */
+a:active {
+    color: #0000FF;
+}
+
+.name label{
+	display:block;
+	margin-bottom: 15px;
+}
+
+.form-inputs label{
+	display: inline-block;
+}
+
+fieldset{
+	border: none;
+	margin-bottom: 20px;
+}
+
+input[type=text]{
+	width:40%;
+	padding: 10px;
+}
+
+select{
+	width: 70px;
+	margin-left: 15px;
+}
+
+input[type=submit] {
+  	display: inline-block;
+  	background-color: $background-color;
+  	width: 200px;
+  	padding: 8px;
+  	color: #fff;
+  	border: 2px solid #fff;
+  	text-align: center;
+  	outline: none;
+  	text-decoration: none;
+  	transition: background-color 0.2s ease-out,
+              color 0.2s ease-out;
+    cursor: pointer;
+}
+input[type=submit]:hover,
+input[type=submit]:active {
+  background-color: #fff;
+  color: $background-color;
+  transition: background-color 0.3s ease-in,
+              color 0.3s ease-in;
+}
