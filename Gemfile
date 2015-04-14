@@ -64,3 +64,4 @@ gem 'capistrano-rails', require: false
 gem 'capistrano-pending', require: false
 gem 'awesome_print', group: [:development, :test]
 gem 'httparty'
+gem 'rails_12factor', group: :production
