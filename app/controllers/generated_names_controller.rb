@@ -6,13 +6,13 @@ class GeneratedNamesController < ApplicationController
   # GET /generated_names.json
   def index
     @generated_name = GeneratedName.new
-    @generated_names = get_past_names(@generated_name, 5)
+    @generated_names = get_past_names(@generated_name, 7)
   end
 
   # GET /generated_names/1
   # GET /generated_names/1.json
   def show
-    @generated_names = get_past_names(@generated_name, session['amount'])
+    @generated_names = get_past_names(@generated_name, 7)
   end
 
   # GET /generated_names/new
